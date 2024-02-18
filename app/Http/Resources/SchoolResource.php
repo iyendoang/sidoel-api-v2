@@ -34,16 +34,18 @@ class SchoolResource extends JsonResource
      */
     public function toArray($request)
     {
-        $data = $this->resource;
-        if ($this->expiration_time) {
-            $data['expiration_time'] = $this->expiration_time;
-        }
-    
+        $data = $this->resource->map(function ($school) {
+            $schoolArray = $school->toArray();
+            if ($school->expiration_time) {
+                $schoolArray['expiration_time'] = $school->expiration_time;
+            }
+            return $schoolArray;
+        });
+
         return [
-            'success'   => $this->status,
-            'message'   => $this->message,
-            'data'      => $data
+            'success' => $this->status,
+            'message' => $this->message,
+            'data' => $data
         ];
     }
-    
 }
