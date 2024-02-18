@@ -48,6 +48,7 @@ class SchoolController extends Controller
             'token'   =>  $request->nsm,
             'start_date'   => $request->start_date,
             'end_date'   => $request->end_date,
+            'expiration_time'   => $request->end_date,
         ]);
 
         //return response
@@ -112,6 +113,7 @@ class SchoolController extends Controller
                 'token'   =>  $request->nsm,
                 'start_date'   => $request->start_date,
                 'end_date'   => $request->end_date,
+                'expiration_time'   => $request->end_date,
             ]);
         } else {
             //update school without logo
@@ -123,6 +125,7 @@ class SchoolController extends Controller
                 'token'   =>  $request->nsm,
                 'start_date'   => $request->start_date,
                 'end_date'   => $request->end_date,
+                'expiration_time'   => $request->end_date,
             ]);
         }
         if ($request->status != null) {

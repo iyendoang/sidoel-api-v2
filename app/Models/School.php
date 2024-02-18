@@ -22,20 +22,13 @@ class School extends Model
         'start_date',
         'end_date',
         'last_login',
+        'expiration_time',
     ];
 
     protected $casts = [
         'last_login' => 'datetime',
+        'expiration_time' => 'datetime',
     ];
-
-    public function getExpirationTimeAttribute()
-    {
-        if (!is_null($this->end_date)) {
-            $expirationTime = new Carbon($this->end_date);
-            return $expirationTime->diffForHumans();
-        }
-        return 'No expiration time set';
-    }
 
     public function getLogoAttribute($logo)
     {
@@ -49,5 +42,13 @@ class School extends Model
         }
         $lastLogin = new Carbon($value);
         return $lastLogin->diffForHumans();
+    }
+    public function getExpirationTimeAttribute($value)
+    {
+        if (is_null($value)) {
+            return 'not found';
+        }
+        $expirationTime = new Carbon($value);
+        return $expirationTime->diffForHumans();
     }
 }

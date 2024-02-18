@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean("status")->default(1);
             $table->date("start_date")->nullable();
             $table->date("end_date")->nullable();
+            $table->date("expiration_time")->nullable();
             $table->dateTime("last_login")->nullable()->default(null);
             $table->timestamps();
         });
