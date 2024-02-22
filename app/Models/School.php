@@ -14,6 +14,7 @@ class School extends Model
     protected $fillable = [
         'nsm',
         'npsn',
+        'level',
         'name',
         'address',
         'logo',

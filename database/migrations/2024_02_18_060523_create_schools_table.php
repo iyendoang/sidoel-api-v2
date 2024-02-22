@@ -15,6 +15,7 @@ return new class extends Migration
             $table->ulid("id")->primary();
             $table->string('nsm')->unique();
             $table->string('npsn')->unique();
+            $table->string('level');
             $table->string('name');
             $table->text('address');
             $table->string('logo');
